@@ -29,8 +29,19 @@ class PopUpUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        app.buttons["Show"].tap()
+        
+        let datePickersQuery = app.datePickers
+        datePickersQuery.pickerWheels["Today"].swipeDown()
+        datePickersQuery.pickerWheels["35 minutes"].swipeDown()
+        
+        let pmPickerWheel = datePickersQuery.pickerWheels["PM"]
+        pmPickerWheel.swipeDown()
+        pmPickerWheel.swipeUp()
+        app.buttons["Close"].tap()
+    
     }
     
 }
